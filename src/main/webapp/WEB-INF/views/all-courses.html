@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список курсов компании</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('data:image/jpeg;base64,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');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Список курсов компании</h1>
+    <div th:text="${courses}">Courses: </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Название курса</th>
+            <th>Описание</th>
+            <th>Дата начала</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.courseName}">название курса</td>
+            <td th:text="${course.description}">описание курса</td>
+            <td th:text="${course.dateOfStart}">дата</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

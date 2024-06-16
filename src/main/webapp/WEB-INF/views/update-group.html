@@ -1,0 +1,52 @@
+<!-- update-group.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Group</title>
+    <style>
+        form {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        img {
+            display: block;
+            max-width: 200px;
+            max-height: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>Update Group</h2>
+<form method="post" th:action="@{/lms/group/update-group/{id}(id=${group.id})}">
+    <input type="hidden" th:field="*{id}"/>
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{group.groupName}"/><br/>
+    <label for="description">Description:</label>
+    <input type="text" id="description" th:field="*{group.description}"/><br/>
+    <label for="image">Image:</label>
+    <input type="text" id="image" th:field="*{group.linkImage}"/><br/>
+    <img th:if="${group.linkImage}" th:src="${group.linkImage}"/>
+    <button type="submit">Update Group</button>
+</form>
+</body>
+</html>
+
